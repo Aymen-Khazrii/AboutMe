@@ -9,6 +9,22 @@
   <meta name="description" content="Digital Business Developer & Data Analyst with 5+ years of experience in data-driven strategy, analytics, and growth. Based in Berlin, Germany.">
 
 <link rel="stylesheet" href="css/style.css">
+
+  <!-- Option A – Google Analytics (Best)
+
+Go to:
+👉 https://analytics.google.com
+
+Create a property
+
+Copy the Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX');
+</script>
  
 </head>
 
@@ -16,6 +32,11 @@
 <div class="controls">
   <button id="themeToggle">🌙</button>
   <button onclick="window.print()">📄</button>
+  <select id="cvType">
+    <option value="general">General</option>
+    <option value="data">Data Analyst</option>
+    <option value="business">Business Developer</option>
+  </select>
 </div>
   
 
@@ -134,4 +155,5 @@
 </body>
 
 </html>
+
 
