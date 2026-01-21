@@ -1,0 +1,125 @@
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 30px;
+      color: #2c2c2c;
+      line-height: 1.7;
+    }
+    h1 { font-size: 2.4em; margin-bottom: 5px; }
+    h2 { margin-top: 45px; border-bottom: 2px solid #eee; padding-bottom: 6px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .subtitle { color: #555; font-size: 1.1em; }
+    .highlight { font-weight: 600; }
+    a { color: #0066cc; text-decoration: none; }
+    .top { margin-bottom: 40px; }
+    .toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  opacity: 0.8;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #0f0f0f;
+  color: #e6e6e6;
+}
+
+body.dark h2 {
+  border-color: #333;
+}
+
+body.dark a {
+  color: #4da3ff;
+}
+
+body.dark .subtitle {
+  color: #aaa;
+}
+
+
+    body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, p, li, a {
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+
+    @media (max-width: 600px) {
+  body {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .toggle-btn {
+    top: 15px;
+    right: 15px;
+    font-size: 0.8em;
+    padding: 8px 12px;
+  }
+}
+
+    @media print {
+  .toggle-btn {
+    display: none;
+  }
+
+  body {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+    .controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  background: rgba(0,0,0,0.05);
+  padding: 8px 12px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.controls button:hover {
+  transform: scale(1.15);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
