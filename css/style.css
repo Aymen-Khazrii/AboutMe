@@ -160,3 +160,8 @@ h1, h2, p, li, a {
   border-radius: 12px;
   padding: 4px 8px;
 }
+
+.placeholder {
+  font-size: 3rem;
+  padding: 30px;
+}
