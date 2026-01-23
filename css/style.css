@@ -154,3 +154,9 @@ h1, h2, p, li, a {
 .business-cv .data-only {
   display: none;
 }
+
+.controls select {
+  background: rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 4px 8px;
+}
