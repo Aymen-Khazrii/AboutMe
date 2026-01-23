@@ -30,7 +30,15 @@
     <option value="business">Business Developer</option>
   </select>
 </div>
-  
+
+  <div class="role-selector">
+  <button data-role="general" class="active">General</button>
+  <button data-role="business">Business</button>
+  <button data-role="data">Data Analyst</button>
+</div>
+  <a id="cvDownload" href="Aymen_Khazri_CV_General.pdf">
+  Download CV
+</a>
 
 <div class="top">
   <h1>Aymen Khazri</h1>
@@ -62,6 +70,19 @@
 <li class="business-only">Led growth strategy initiatives</li>
 </ul>
 
+<section data-role="general">
+  <p>General profile summary, balanced for all roles.</p>
+</section>
+
+<section data-role="business">
+  <p>Business-focused experience, KPIs, strategy, stakeholders.</p>
+</section>
+
+<section data-role="data">
+  <p>Data analysis, SQL, Python, dashboards, metrics.</p>
+</section>
+
+  
 <h2 class="reveal" >Professional Experience</h2>
 
 <h3>Freelance Digital Business Developer & Data Analyst</h3>
@@ -193,9 +214,41 @@ Conversion funnel optimization
    <script src="js/animation.js"></script>
    <script src="js/theme.js"></script>
   <script src="js/cv-generator.js"></script>
+
+  <script>
+  const buttons = document.querySelectorAll(".role-selector button");
+  const sections = document.querySelectorAll("section[data-role]");
+  const cvLink = document.getElementById("cvDownload");
+
+  const cvFiles = {
+    general: "Aymen_Khazri_CV_General.pdf",
+    business: "Aymen_Khazri_CV_Business.pdf",
+    data: "Aymen_Khazri_CV_Data.pdf"
+  };
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const role = button.dataset.role;
+
+      // update active button
+      buttons.forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+
+      // show / hide sections
+      sections.forEach(section => {
+        section.style.display =
+          section.dataset.role === role ? "block" : "none";
+      });
+
+      // change CV download
+      cvLink.href = "./" + cvFiles[role];
+    });
+  });
+</script>
 </body>
 
 </html>
+
 
 
 
