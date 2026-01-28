@@ -165,3 +165,7 @@ h1, h2, p, li, a {
   font-size: 3rem;
   padding: 30px;
 }
+
+.hidden {
+  display: none !important;
+}
