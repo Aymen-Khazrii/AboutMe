@@ -252,6 +252,7 @@ Conversion funnel optimization
 <ul>
   <li><a href="https://www.linkedin.com/in/aymen-khazri-bba9a7159/" target="_blank">LinkedIn Profile</a></li>
   <li><a href="https://aymen-khazrii.github.io/AboutMe/" target="_blank">GitHub</a></li>
+  <li><a id="cvDownload" href="Aymen_Khazri_CV_General.pdf" download> Download CV </a></li>
   <p class="meta">
   This portfolio uses privacy-friendly analytics to measure engagement.
     <a href="Aymen Khazri – Digital Business Developer & Data Analyst.pdf"
@@ -265,39 +266,51 @@ Conversion funnel optimization
   <script src="js/cv-generator.js"></script>
 
   <script>
-  const buttons = document.querySelectorAll(".role-selector button");
-  const sections = document.querySelectorAll("section[data-role]");
+  document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("cvType");
   const cvLink = document.getElementById("cvDownload");
+
+  const groups = {
+    general: document.querySelectorAll(".general-only"),
+    data: document.querySelectorAll(".data-only"),
+    business: document.querySelectorAll(".business-only")
+  };
 
   const cvFiles = {
     general: "Aymen_Khazri_CV_General.pdf",
-    business: "Aymen_Khazri_CV_Business.pdf",
-    data: "Aymen_Khazri_CV_Data.pdf"
+    data: "Aymen_Khazri_CV_Data.pdf",
+    business: "Aymen_Khazri_CV_Business.pdf"
   };
 
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      const role = button.dataset.role;
-
-      // update active button
-      buttons.forEach(b => b.classList.remove("active"));
-      button.classList.add("active");
-
-      // show / hide sections
-      sections.forEach(section => {
-        section.style.display =
-          section.dataset.role === role ? "block" : "none";
-      });
-
-      // change CV download
-      cvLink.href = "./" + cvFiles[role];
+  function updateView(role) {
+    // hide everything
+    Object.values(groups).forEach(nodes => {
+      nodes.forEach(el => el.classList.add("hidden"));
     });
+
+    // show selected
+    groups[role].forEach(el => el.classList.remove("hidden"));
+
+    // update CV link
+    if (cvLink) {
+      cvLink.href = cvFiles[role];
+    }
+  }
+
+  // initial state
+  updateView(select.value);
+
+  // on change
+  select.addEventListener("change", e => {
+    updateView(e.target.value);
   });
+});
 </script>
   <script src="./js/main.js"></script>
 </body>
 
 </html>
+
 
 
 
